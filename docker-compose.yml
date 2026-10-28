@@ -1,0 +1,14 @@
+services:
+  gennai-local:
+    image: ghcr.io/open-webui/open-webui:ollama
+    container_name: gennai-local
+    ports:
+      - "3000:8080"
+    volumes:
+      - ollama:/root/.ollama
+      - open-webui:/app/backend/data
+    restart: unless-stopped
+
+volumes:
+  ollama:
+  open-webui:
